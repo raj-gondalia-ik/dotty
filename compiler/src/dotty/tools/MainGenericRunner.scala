@@ -178,6 +178,7 @@ object MainGenericRunner {
   def errorFn(str: String, e: Option[Throwable] = None, isFailure: Boolean = true): Boolean = {
     if (str.nonEmpty) Console.err.println(str)
     e.foreach(_.printStackTrace())
+    if (e.isDefined) System.exit(1)
     !isFailure
   }
 }
